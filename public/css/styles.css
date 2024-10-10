@@ -5,17 +5,20 @@
 }
 
 *{
-    background-color: #f5f5f5;;
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.navcolor{
+.container-color{
     background-color: var(--amarelo);
     border-radius: 10px;
 }
+
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    align-content: center;
 }
 .navbar-link{
     list-style: none;
@@ -33,26 +36,39 @@
 }
 .navbar-link a:hover{
     background-color: var(--amareloClaro); 
-    color: var(--cinzaEscuro);
-}
-
-tr{
-    background-color: var(--amarelo);
-    border-radius: 10%;
 }
 
 th, td{
-    border: 1px solid var(--cinzaEscuro);
+    border: 1px solid;
     padding: 8px;
-    text-align: left;
+    text-align: center;
+    color: var(--cinzaEscuro);
     border-radius: 10px;
 }
-
 th{
     background-color: var(--amarelo);
+}
+.table-link{
+    text-decoration: none;
+}
+.table-link:hover{
+    color: var(--cinzaEscuro);
+}
+.edit{
+    color: var(--amarelo);
+}
+.delete{
+    color: #ec0a0a;
+}
+
+.footer-text{
+    font-style: italic;
+    text-align: center;
     color: var(--cinzaEscuro);
 }
 
-td{
-    color: var(--cinzaEscuro);
+footer{
+    align-content: center;
+    height: 80px;
+    width: 100%;
 }

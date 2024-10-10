@@ -1,0 +1,10 @@
+<%- include("partials/navbar.ejs") %> <br>
+<form action="/pedidos/update" method="post">
+    <input type="hidden" name="id" value="<%= pedido.id %>">
+    <label>Número do Pedido:</label>
+    <input type="text" name="numeroPedido" value="<%= pedido.numeroPedido %>" required><br>
+    <label>Valor:</label>
+    <input type="text" name="valor" value="<%= pedido.valor %>" required><br>
+    <input type="submit" value="Alterar">
+</form>
+<%- include("partials/footer.ejs") %>

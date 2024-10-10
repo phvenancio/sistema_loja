@@ -31,11 +31,6 @@ app.use("/", ClientesController);
 app.use("/", ProdutosController);
 app.use("/", PedidosController);
 
-app.get("/pedidos", (req,res) => {
-    const listaPedidos = [{numeroPedido: "1", valor: "20.00"}, {numeroPedido: "2", valor: "60.00"}, {numeroPedido: "3", valor: "72.00"}, {numeroPedido: "4", valor: "10.00"}];
-    res.render("pedidos", {listaPedidos: listaPedidos});
-});
-
 const port = 8080;
 app.listen(port, (error) => {
     if(error){

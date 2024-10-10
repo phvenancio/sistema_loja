@@ -1,14 +1,24 @@
 <%- include("partials/navbar.ejs") %> <br>
+<form action="/pedidos/new" method="post">
+    <label>Número do Pedido:</label>
+    <input type="text" name="numeroPedido" placeholder="Digite o Número do Pedido" required><br>
+    <label>Valor:</label>
+    <input type="text" name="valor" placeholder="Digite o Valor do Pedido" required><br>
+    <input type="submit" value="Cadastrar">
+</form>
 <table>
     <thead>
         <th>Número:</th>
         <th>Valor:</th>
+        <th>Ações:</th>
     </thead>
     <tbody>
         <% pedidos.forEach((pedido) => { %>
         <tr>
             <td><%= pedido.numeroPedido %></td>
             <td><%= pedido.valor %></td>
+            <td><a href="/pedidos/edit/<%= pedido.id %>">Alterar</a></td>
+            <td><a href="/pedidos/delete/<%= pedido.id %>">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>

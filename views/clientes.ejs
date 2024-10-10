@@ -1,4 +1,5 @@
-<%- include("partials/navbar.ejs") %> <br>
+<%- include("partials/navbar.ejs") %> <hr>
+<div></div>
 <form action="/clientes/new" method="post">
     <label>Nome:</label>
     <input type="text" name="nome" placeholder="Digite o Nome" required><br>
@@ -21,10 +22,11 @@
             <td><%= cliente.nome %></td>
             <td><%= cliente.cpf %></td>
             <td><%= cliente.endereco %></td>
-            <td><a href="/clientes/edit/<%= cliente.id %>">Alterar</a></td>
-            <td><a href="/clientes/delete/<%= cliente.id %>">Excluir</a></td>
+            <td><a class="table-link edit" href="/clientes/edit/<%= cliente.id %>">Alterar</a></td>
+            <td><a class="table-link delete" href="/clientes/delete/<%= cliente.id %>">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>
 </table>
+<hr>
 <%- include("partials/footer.ejs") %>
