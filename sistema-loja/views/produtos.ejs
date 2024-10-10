@@ -1,0 +1,18 @@
+<%- include("partials/navbar.ejs") %> <br>
+<table>
+    <thead>
+        <th>Nome do Produto:</th>
+        <th>Categoria:</th>
+        <th>Preço:</th>
+    </thead>
+    <tbody>
+        <% produtos.forEach((produto) => { %>
+        <tr>
+            <td><%= produto.nomeProduto %></td>
+            <td><%= produto.categoria %></td>
+            <td><%= produto.preco %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+<%- include("partials/footer.ejs") %>
