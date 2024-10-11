@@ -15,10 +15,24 @@ router.get("/pedidos", (req,res) => {
 router.post("/pedidos/new", (req, res) => {
     const numeroPedido = req.body.numeroPedido;
     const valor = req.body.valor;
+    const horaPedido = new Date();
     Pedido.create({
         numeroPedido: numeroPedido,
-        valor: valor
+        valor: valor,
+        horaPedido: horaPedido
     }).then(() => {
+        res.redirect("/pedidos");
+    }).catch((error) => {
+        console.log(error);
+    });
+});
+
+router.get("/pedidos/entregar/:id", (req, res) => {
+    const id = req.params.id;
+    const horaEntrega = new Date();
+    Pedido.update({
+        horaEntrega: horaEntrega
+    }, {where: { id: id }}).then(() => {
         res.redirect("/pedidos");
     }).catch((error) => {
         console.log(error);
@@ -39,10 +53,10 @@ router.get("/pedidos/edit/:id", (req, res) => {
 router.post("/pedidos/update", (req, res) => {
     const id = req.body.id;
     const numeroPedido = req.body.numeroPedido;
-    const valor = req.body.valor;
+    const valor = req.body.valor;;
     Pedido.update({
         numeroPedido: numeroPedido,
-        valor: valor
+        valor: valor,
     }, {where: { id: id }}).then(() => {
         res.redirect("/pedidos");
     }).catch((error) => {

@@ -1,12 +1,16 @@
-<%- include("partials/navbar.ejs") %> <br>
-<form action="/produtos/update" method="post">
-    <input type="hidden" name="id" value="<%= produto.id %>">
+<%- include("partials/header.ejs") %>
+
+<form class="content" action="/produtos/update " method="post">
+    <input type="hidden" name="id" value="<%= produto.id %>" required>
     <label>Nome do Produto:</label>
     <input type="text" name="nomeProduto" value="<%= produto.nomeProduto %>" required><br>
     <label>Categoria:</label>
     <input type="text" name="categoria" value="<%= produto.categoria %>" required><br>
     <label>Preço:</label>
     <input type="text" name="preco" value="<%= produto.preco %>" required><br>
-    <input type="submit" value="Alterar">
+    <label>Estoque:</label>
+    <input type="text" name="estoque" value="<%= produto.estoque %>" required><br>
+    <button type="submit">Alterar</button>
 </form>
+
 <%- include("partials/footer.ejs") %>

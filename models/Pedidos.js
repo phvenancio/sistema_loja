@@ -5,9 +5,18 @@ const Pedido = connection.define("pedidos", {
     numeroPedido: {
         type: Sequelize.INTEGER,
         allowNull: false
-    },valor: {
+    },
+    valor: {
         type: Sequelize.DOUBLE,
         allowNull: false
+    },
+    horaPedido: {
+        type: Sequelize.TIME,
+        allowNull: false
+    },
+    horaEntrega: {
+        type: Sequelize.TIME,
+        allowNull: true
     }
 });
 

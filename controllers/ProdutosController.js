@@ -16,10 +16,12 @@ router.post("/produtos/new", (req, res) => {
     const nomeProduto = req.body.nomeProduto;
     const preco = req.body.preco;
     const categoria = req.body.categoria;
+    const estoque = req.body.estoque;
     Produto.create({
         nomeProduto: nomeProduto,
         preco: preco,
-        categoria: categoria
+        categoria: categoria,
+        estoque: estoque
     }).then(() => {
         res.redirect("/produtos");
     }).catch((error) => {
@@ -43,10 +45,12 @@ router.post("/produtos/update", (req, res) => {
     const nomeProduto = req.body.nomeProduto;
     const preco = req.body.preco;
     const categoria = req.body.categoria;
+    const estoque = req.body.estoque;
     Produto.update({
         nomeProduto: nomeProduto,
         preco: preco,
-        categoria: categoria
+        categoria: categoria,
+        estoque: estoque
     }, {where: { id: id }}).then(() => {
         res.redirect("/produtos");
     }).catch((error) => {

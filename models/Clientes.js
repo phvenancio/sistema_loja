@@ -5,10 +5,32 @@ const Cliente = connection.define("clientes", {
     nome: {
         type: Sequelize.STRING,
         allowNull: false
-    },cpf: {
+    },
+    cpf: {
         type: Sequelize.STRING,
         allowNull: false
-    },endereco: {
+    },
+    endereco: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    bairro: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    cidade: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    estado: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    senha: {
         type: Sequelize.STRING,
         allowNull: false
     }

@@ -5,11 +5,17 @@ const Produto = connection.define("produtos", {
     nomeProduto: {
         type: Sequelize.STRING,
         allowNull: false
-    },preco: {
+    },
+    preco: {
         type: Sequelize.DOUBLE,
         allowNull: false
-    },categoria: {
+    },
+    categoria: {
         type: Sequelize.STRING,
+        allowNull: false
+    },
+    estoque: {
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });

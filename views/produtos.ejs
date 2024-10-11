@@ -1,30 +1,36 @@
-<%- include("partials/navbar.ejs") %> <br>
-<form action="/produtos/new " method="post">
+<%- include("partials/header.ejs") %>
+
+<form class="content" action="/produtos/new " method="post">
     <label>Nome do Produto:</label>
     <input type="text" name="nomeProduto" placeholder="Digite o Nome do Produto" required><br>
     <label>Categoria:</label>
     <input type="text" name="categoria" placeholder="Digite a Categoria do Produto" required><br>
     <label>Preço:</label>
     <input type="text" name="preco" placeholder="Digite o Preço do Produto" required><br>
-    <input type="submit" value="Cadastrar">
+    <label>Estoque:</label>
+    <input type="text" name="estoque" placeholder="Digite o Estoque do Produto" required><br>
+    <button type="submit">Cadastrar</button>
 </form>
-<table>
+<table class="content" >
     <thead>
         <th>Nome do Produto:</th>
         <th>Categoria:</th>
         <th>Preço:</th>
-        <th>Ações:</th>
+        <th>Estoque:</th>
+        <th colspan="2">Ações:</th>
     </thead>
     <tbody>
         <% produtos.forEach((produto) => { %>
         <tr>
             <td><%= produto.nomeProduto %></td>
             <td><%= produto.categoria %></td>
-            <td><%= produto.preco %></td>
-            <td><a href="/produtos/edit/<%= produto.id %>">Alterar</a></td>
-            <td><a href="/produtos/delete/<%= produto.id %>">Excluir</a></td>
+            <td><%= produto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+            <td><%= produto.estoque %></td>
+            <td><a class="link edit" href="/produtos/edit/<%= produto.id %>">Alterar</a></td>
+            <td><a class="link delete" href="/produtos/delete/<%= produto.id %>">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>
 </table>
+
 <%- include("partials/footer.ejs") %>

@@ -1,26 +1,37 @@
-<%- include("partials/navbar.ejs") %> <br>
-<form action="/pedidos/new" method="post">
+<%- include("partials/header.ejs") %>
+
+<form class="content" action="/pedidos/new" method="post">
     <label>Número do Pedido:</label>
     <input type="text" name="numeroPedido" placeholder="Digite o Número do Pedido" required><br>
     <label>Valor:</label>
     <input type="text" name="valor" placeholder="Digite o Valor do Pedido" required><br>
-    <input type="submit" value="Cadastrar">
+    <button type="submit">Cadastrar</button>
 </form>
-<table>
+<table class="content">
     <thead>
         <th>Número:</th>
         <th>Valor:</th>
-        <th>Ações:</th>
+        <th>Hora do Pedido:</th>
+        <th>Hora de Entrega</th>
+        <th colspan="2">Ações:</th>
     </thead>
     <tbody>
         <% pedidos.forEach((pedido) => { %>
         <tr>
             <td><%= pedido.numeroPedido %></td>
-            <td><%= pedido.valor %></td>
-            <td><a href="/pedidos/edit/<%= pedido.id %>">Alterar</a></td>
-            <td><a href="/pedidos/delete/<%= pedido.id %>">Excluir</a></td>
+            <td><%= pedido.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+            <td><%= pedido.horaPedido %></td>
+            <td>
+                <%= pedido.horaEntrega ? pedido.horaEntrega : '' %>
+                <% if (!pedido.horaEntrega) { %>
+                    <a class="link edit" href="/pedidos/entregar/<%= pedido.id %>">Entregar</a>
+                <% } %>
+            </td>
+            <td><a class="link edit" href="/pedidos/edit/<%= pedido.id %>">Alterar</a></td>
+            <td><a class="link delete" href="/pedidos/delete/<%= pedido.id %>">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>
 </table>
+
 <%- include("partials/footer.ejs") %>

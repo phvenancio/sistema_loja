@@ -1,58 +1,92 @@
+/* Cores da Página */
 :root{
     --amarelo: #d8b24a;
     --amareloClaro: #fde9b0;
     --cinzaEscuro: #272626;
 }
 
+/* Style GERAL */
 *{
     background-color: #f5f5f5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.container-color{
+.container-bg{
     background-color: var(--amarelo);
-    border-radius: 10px;
 }
-
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    align-content: center;
-}
-.navbar-link{
-    list-style: none;
-    display: flex;
-}
-.navbar-link li{
-    margin-left: 20px;
-}
-.navbar-link a{
-    color: var(--cinzaEscuro);
+.link{
     text-decoration: none;
-    font-size: 18px;
-    padding: 8px 16px;
+}
+.link:hover{
+    color: var(--cinzaEscuro);
     transition: background 0.4s;
 }
-.navbar-link a:hover{
-    background-color: var(--amareloClaro); 
+.content{
+    margin-top: 80px;
+    padding: 1rem 0;
 }
 
-th, td{
+/* Style da HEADER */
+.header-bg{
+    background-color: var(--cinzaEscuro);
+}
+.header{
+    align-content: center;
+    border-radius: 18px;
+}
+.header-title{
+    text-align: center;
+}
+.header-link{
+    color: var(--amareloClaro);
+    text-decoration: none;
+}
+
+/* Style da NAVBAR */
+.navbar{
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+.navbar-items{
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+.navbar-items li{
+    margin: 0 2vw;
+}
+.navbar-items a{
+    border-radius: 30px;
+    color: var(--cinzaEscuro);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0.1em;
+    padding: 0.7em 1em;
+    text-decoration: none;
+    transition: background 0.4s;
+}
+.navbar-items a:hover{
+    background-color: var(--amareloClaro);
+    font-size: 1.3em; 
+}
+
+/* Style da TABELA */
+table{
+    background-color: var(--amareloClaro);
     border: 1px solid;
+    border-radius: 10px;
+}
+th, td{
+    border: 2px solid;
+    border-radius: 10px;
+    color: var(--cinzaEscuro);
     padding: 8px;
     text-align: center;
-    color: var(--cinzaEscuro);
-    border-radius: 10px;
 }
 th{
     background-color: var(--amarelo);
-}
-.table-link{
-    text-decoration: none;
-}
-.table-link:hover{
-    color: var(--cinzaEscuro);
 }
 .edit{
     color: var(--amarelo);
@@ -61,14 +95,17 @@ th{
     color: #ec0a0a;
 }
 
+/* Style do FOOTER */
 .footer-text{
-    font-style: italic;
-    text-align: center;
     color: var(--cinzaEscuro);
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
 }
-
-footer{
+.footer{
     align-content: center;
+    border-radius: 18px;
     height: 80px;
     width: 100%;
 }

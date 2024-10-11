@@ -16,10 +16,20 @@ router.post("/clientes/new", (req, res) => {
     const nome = req.body.nome;
     const cpf = req.body.cpf;
     const endereco = req.body.endereco;
+    const bairro = req.body.bairro;
+    const cidade = req.body.cidade;
+    const estado = req.body.estado;
+    const email = req.body.email;
+    const senha = req.body.senha;
     Cliente.create({
         nome: nome,
         cpf: cpf,
-        endereco: endereco
+        endereco: endereco,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        email: email,
+        senha: senha
     }).then(() => {
         res.redirect("/clientes");
     }).catch((error) => {
@@ -43,10 +53,20 @@ router.post("/clientes/update", (req, res) => {
     const nome = req.body.nome;
     const cpf = req.body.cpf;
     const endereco = req.body.endereco;
+    const bairro = req.body.bairro;
+    const cidade = req.body.cidade;
+    const estado = req.body.estado;
+    const email = req.body.email;
+    const senha = req.body.senha;
     Cliente.update({
         nome: nome,
         cpf: cpf,
-        endereco: endereco
+        endereco: endereco,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        email: email,
+        senha: senha
     }, { where: { id: id }}).then(() => {
         res.redirect("/clientes");
     }).catch((error) => {

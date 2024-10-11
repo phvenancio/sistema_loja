@@ -1,20 +1,63 @@
-<%- include("partials/navbar.ejs") %> <hr>
-<div></div>
-<form action="/clientes/new" method="post">
+<%- include("partials/header.ejs") %>
+
+<form class="content" action="/clientes/new" method="post">
     <label>Nome:</label>
-    <input type="text" name="nome" placeholder="Digite o Nome" required><br>
+    <input type="text" name="nome" placeholder="Digite seu Nome" required><br>
     <label>CPF:</label>
-    <input type="text" name="cpf" placeholder="Digite o CPF" required><br>
+    <input type="text" name="cpf" placeholder="Digite seu CPF" required><br>
     <label>Endereço:</label>
-    <input type="text" name="endereco" placeholder="Digite o Endereço" required><br>
-    <input type="submit" value="Cadastrar">
+    <input type="text" name="endereco" placeholder="Digite seu Endereço" required><br>
+    <label>Bairro:</label>
+    <input type="text" name="bairro" placeholder="Digite seu Bairro" required><br>
+    <label>Cidade:</label>
+    <input type="text" name="cidade" placeholder="Digite sua Cidade" required><br>
+    <label>Estado:</label>
+    <select name="estado" required>
+        <option value="" disabled selected>Selecionar Estado</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+    </select>
+    <label>Email:</label>
+    <input type="text" name="email" placeholder="Digite seu Email" required><br>
+    <label>Senha:</label>
+    <input type="password" name="senha" placeholder="Digite sua Senha" required><br>
+    <button type="submit">Cadastrar</button>
 </form>
-<table>
+<table class="content">
     <thead>
         <th>Nome:</th>
         <th>CPF:</th>
         <th>Endereço:</th>
-        <th>Ações:</th>
+        <th>Bairro:</th>
+        <th>Cidade:</th>
+        <th>UF:</th>
+        <th>Email:</th>
+        <th colspan="2">Ações:</th>
     </thead>
     <tbody>
         <% clientes.forEach((cliente) => { %>
@@ -22,11 +65,15 @@
             <td><%= cliente.nome %></td>
             <td><%= cliente.cpf %></td>
             <td><%= cliente.endereco %></td>
-            <td><a class="table-link edit" href="/clientes/edit/<%= cliente.id %>">Alterar</a></td>
-            <td><a class="table-link delete" href="/clientes/delete/<%= cliente.id %>">Excluir</a></td>
+            <td><%= cliente.bairro %></td>
+            <td><%= cliente.cidade %></td>
+            <td><%= cliente.estado %></td>
+            <td><%= cliente.email %></td>
+            <td><a class="link edit" href="/clientes/edit/<%= cliente.id %>">Alterar</a></td>
+            <td><a class="link delete" href="/clientes/delete/<%= cliente.id %>">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>
 </table>
-<hr>
+
 <%- include("partials/footer.ejs") %>
