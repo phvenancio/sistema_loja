@@ -6,7 +6,7 @@
     <input type="text" name="numeroPedido" value="<%= pedido.numeroPedido %>" required><br>
     <label>Valor:</label>
     <input type="text" name="valor" value="<%= pedido.valor %>" required><br>
-    <button type="submit">Alterar</button>
+    <button type="submit" onclick="return confirm('Deseja realmente alterar o pedido <%= pedido.numeroPedido %>?')">Alterar</button>
 </form>
 
 <%- include("partials/footer.ejs") %>

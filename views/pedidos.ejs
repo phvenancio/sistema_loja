@@ -28,7 +28,7 @@
                 <% } %>
             </td>
             <td><a class="link edit" href="/pedidos/edit/<%= pedido.id %>">Alterar</a></td>
-            <td><a class="link delete" href="/pedidos/delete/<%= pedido.id %>">Excluir</a></td>
+            <td><a class="link delete" href="/pedidos/delete/<%= pedido.id %>" onclick="return confirm('Deseja realmente deletar o pedido <%= pedido.numeroPedido %>?')">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>

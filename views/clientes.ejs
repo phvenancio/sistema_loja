@@ -70,7 +70,7 @@
             <td><%= cliente.estado %></td>
             <td><%= cliente.email %></td>
             <td><a class="link edit" href="/clientes/edit/<%= cliente.id %>">Alterar</a></td>
-            <td><a class="link delete" href="/clientes/delete/<%= cliente.id %>">Excluir</a></td>
+            <td><a class="link delete" href="/clientes/delete/<%= cliente.id %>" onclick="return confirm('Deseja realmente deletar o cliente <%= cliente.nome %>?')">Excluir</a></td>
         </tr>
         <% }) %>
     </tbody>

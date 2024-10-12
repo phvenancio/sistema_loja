@@ -72,6 +72,14 @@
     font-size: 1.3em; 
 }
 
+/* Style da INDEX */
+.content-image{
+    background: no-repeat center/100% url("/images/lojaVenancio.jpg") transparent;
+    border-radius: 18px;
+    height: 50vh;
+    width: 100%;
+}
+
 /* Style da TABELA */
 table{
     background-color: var(--amareloClaro);
