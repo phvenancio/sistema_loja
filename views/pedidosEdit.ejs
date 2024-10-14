@@ -1,12 +1,19 @@
 <%- include("partials/header.ejs") %>
-
-<form class="content" action="/pedidos/update" method="post">
-    <input type="hidden" name="id" value="<%= pedido.id %>" required>
-    <label>Número do Pedido:</label>
-    <input type="text" name="numeroPedido" value="<%= pedido.numeroPedido %>" required><br>
-    <label>Valor:</label>
-    <input type="text" name="valor" value="<%= pedido.valor %>" required><br>
-    <button type="submit" onclick="return confirm('Deseja realmente alterar o pedido <%= pedido.numeroPedido %>?')">Alterar</button>
-</form>
-
+<div class="container-page">
+    <div class="content form-container">
+        <h1>Editar Pedidos</h1>
+        <form action="/pedidos/update" method="post">
+            <input type="hidden" name="id" value="<%= pedido.id %>" required>
+            <div class="form-groups">
+                <label>Número do Pedido:</label>
+                <input class="input-smallText" name="numeroPedido" type="text" value="<%= pedido.numeroPedido %>" required>
+            </div>
+            <div class="form-groups">
+                <label>Valor:</label>
+                <input class="input-smallText" name="valor" type="text" value="<%= pedido.valor %>" required><br>
+            </div>
+            <button class="form-button" type="submit" onclick="return confirm('Deseja realmente alterar o pedido <%= pedido.numeroPedido %>?')">Alterar</button>
+        </form>
+    </div>
+</div>
 <%- include("partials/footer.ejs") %>

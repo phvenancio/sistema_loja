@@ -1,36 +1,49 @@
 <%- include("partials/header.ejs") %>
-
-<form class="content" action="/produtos/new " method="post">
-    <label>Nome do Produto:</label>
-    <input type="text" name="nomeProduto" placeholder="Digite o Nome do Produto" required><br>
-    <label>Categoria:</label>
-    <input type="text" name="categoria" placeholder="Digite a Categoria do Produto" required><br>
-    <label>Preço:</label>
-    <input type="text" name="preco" placeholder="Digite o Preço do Produto" required><br>
-    <label>Estoque:</label>
-    <input type="text" name="estoque" placeholder="Digite o Estoque do Produto" required><br>
-    <button type="submit">Cadastrar</button>
-</form>
-<table class="content" >
-    <thead>
-        <th>Nome do Produto:</th>
-        <th>Categoria:</th>
-        <th>Preço:</th>
-        <th>Estoque:</th>
-        <th colspan="2">Ações:</th>
-    </thead>
-    <tbody>
-        <% produtos.forEach((produto) => { %>
-        <tr>
-            <td><%= produto.nomeProduto %></td>
-            <td><%= produto.categoria %></td>
-            <td><%= produto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
-            <td><%= produto.estoque %></td>
-            <td><a class="link edit" href="/produtos/edit/<%= produto.id %>">Alterar</a></td>
-            <td><a class="link delete" href="/produtos/delete/<%= produto.id %>" onclick="return confirm('Deseja realmente deletar o produto <%= produto.nomeProduto %>?')">Excluir</a></td>
-        </tr>
-        <% }) %>
-    </tbody>
-</table>
-
+<div class="container-page">
+    <div class="content form-container">
+        <h1>Cadastro de Produtos</h1>
+        <form action="/produtos/new " method="post">
+            <div class="form-groups">
+                <label>Nome do Produto:</label>
+                <input class="input-bigText" name="nomeProduto" type="text" placeholder="Digite o Nome do Produto" required>
+            </div>
+            <div class="form-groups">
+                <label>Categoria:</label>
+                <input class="input-mediumText" name="categoria" type="text" placeholder="Digite a Categoria do Produto" required>
+            </div>
+            <div class="inline-fields">
+                <label>Preço:</label>
+                <input class="input-smallText" type="text" name="preco" placeholder="R$" required>
+                <label>Estoque:</label>
+                <input class="input-smallText" type="text" name="estoque" placeholder="Digite aqui" required>
+            </div>            
+            <button class="form-button" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+<div class="container-page">
+    <table class="content" >
+        <thead>
+            <th></th>
+            <th>Nome do Produto:</th>
+            <th>Categoria:</th>
+            <th>Preço:</th>
+            <th>Estoque:</th>
+            <th colspan="2">Ações:</th>
+        </thead>
+        <tbody>
+            <% produtos.forEach((produto) => { %>
+            <tr>
+                <td><img src="/images/produto.png"></td>
+                <td><%= produto.nomeProduto %></td>
+                <td><%= produto.categoria %></td>
+                <td><%= produto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+                <td><%= produto.estoque %></td>
+                <td><a class="link edit" href="/produtos/edit/<%= produto.id %>">Alterar</a></td>
+                <td><a class="link delete" href="/produtos/delete/<%= produto.id %>" onclick="return confirm('Deseja realmente deletar o produto <%= produto.nomeProduto %>?')">Excluir</a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
 <%- include("partials/footer.ejs") %>

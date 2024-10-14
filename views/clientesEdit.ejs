@@ -1,53 +1,68 @@
 <%- include("partials/header.ejs") %>
-
-<form class="content" action="/clientes/update" method="post">
-    <input type="hidden" name="id" value="<%= cliente.id %>" required><br>
-    <label>Nome:</label>
-    <input type="text" name="nome" value="<%= cliente.nome %>" required><br>
-    <label>CPF:</label>
-    <input type="text" name="cpf" value="<%= cliente.cpf %>" required><br>
-    <label>Endereço:</label>
-    <input type="text" name="endereco" value="<%= cliente.endereco %>" required><br>
-    <label>Bairro:</label>
-    <input type="text" name="bairro" value="<%= cliente.bairro %>" required><br>
-    <label>Cidade:</label>
-    <input type="text" name="cidade" value="<%= cliente.cidade %>" required><br>
-    <label>Estado:</label>
-    <select name="estado" required>
-        <option value="" disabled>Selecionar Estado</option>
-        <option value="AC" <%= cliente.estado == 'AC'? 'selected': '' %>>Acre</option>
-        <option value="AL" <%= cliente.estado == 'AL'? 'selected': '' %>>Alagoas</option>
-        <option value="AP" <%= cliente.estado == 'AP'? 'selected': '' %>>Amapá</option>
-        <option value="AM" <%= cliente.estado == 'AM'? 'selected': '' %>>Amazonas</option>
-        <option value="BA" <%= cliente.estado == 'BA'? 'selected': '' %>>Bahia</option>
-        <option value="CE" <%= cliente.estado == 'CE'? 'selected': '' %>>Ceará</option>
-        <option value="DF" <%= cliente.estado == 'DF'? 'selected': '' %>>Distrito Federal</option>
-        <option value="ES" <%= cliente.estado == 'ES'? 'selected': '' %>>Espírito Santo</option>
-        <option value="GO" <%= cliente.estado == 'GO'? 'selected': '' %>>Goiás</option>
-        <option value="MA" <%= cliente.estado == 'MA'? 'selected': '' %>>Maranhão</option>
-        <option value="MT" <%= cliente.estado == 'MT'? 'selected': '' %>>Mato Grosso</option>
-        <option value="MS" <%= cliente.estado == 'MS'? 'selected': '' %>>Mato Grosso do Sul</option>
-        <option value="MG" <%= cliente.estado == 'MG'? 'selected': '' %>>Minas Gerais</option>
-        <option value="PA" <%= cliente.estado == 'PA'? 'selected': '' %>>Pará</option>
-        <option value="PB" <%= cliente.estado == 'PB'? 'selected': '' %>>Paraíba</option>
-        <option value="PR" <%= cliente.estado == 'PR'? 'selected': '' %>>Paraná</option>
-        <option value="PE" <%= cliente.estado == 'PE'? 'selected': '' %>>Pernambuco</option>
-        <option value="PI" <%= cliente.estado == 'PI'? 'selected': '' %>>Piauí</option>
-        <option value="RJ" <%= cliente.estado == 'RJ'? 'selected': '' %>>Rio de Janeiro</option>
-        <option value="RN" <%= cliente.estado == 'RN'? 'selected': '' %>>Rio Grande do Norte</option>
-        <option value="RS" <%= cliente.estado == 'RS'? 'selected': '' %>>Rio Grande do Sul</option>
-        <option value="RO" <%= cliente.estado == 'RO'? 'selected': '' %>>Rondônia</option>
-        <option value="RR" <%= cliente.estado == 'RR'? 'selected': '' %>>Roraima</option>
-        <option value="SC" <%= cliente.estado == 'SC'? 'selected': '' %>>Santa Catarina</option>
-        <option value="SP" <%= cliente.estado == 'SP'? 'selected': '' %>>São Paulo</option>
-        <option value="SE" <%= cliente.estado == 'SE'? 'selected': '' %>>Sergipe</option>
-        <option value="TO" <%= cliente.estado == 'TO'? 'selected': '' %>>Tocantins</option>
-    </select>
-    <label>Email:</label>
-    <input type="text" name="email" value="<%= cliente.email %>" required><br>
-    <label>Senha:</label>
-    <input type="password" name="senha" value="<%= cliente.senha %>" required><br>
-    <button type="submit" onclick="return confirm('Deseja realmente alterar o cliente <%= cliente.nome %>?')">Alterar</button>
-</form>
-
+<div class="container-page">
+    <div class="content form-container">
+        <h1>Editar Clientes</h1>
+        <form action="/clientes/update" method="post">
+            <input name="id" type="hidden" value="<%= cliente.id %>" required>
+            <div class="form-groups">
+                <label>Nome:</label>
+                <input class="input-bigText" name="nome" type="text" value="<%= cliente.nome %>" required>
+            </div>
+            <div class="form-groups">
+                <label>CPF:</label>
+                <input class="input-bigText" name="cpf" type="text" value="<%= cliente.cpf %>" required>
+            </div>
+            <div class="inline-fields">
+                <label>Endereço:</label>
+                <input class="input-mediumText" name="endereco" type="text" value="<%= cliente.endereco %>" required>
+                <label>Bairro:</label>
+                <input class="input-mediumText" name="bairro" type="text" value="<%= cliente.bairro %>" required>
+            </div>
+            <div class="inline-fields">
+                <label>Cidade:</label>
+                <input class="input-mediumText" name="cidade" type="text" value="<%= cliente.cidade %>" required>
+                <label>Estado:</label>
+                <select class="input-mediumText" name="estado" required>
+                    <option value="" disabled>Selecionar Estado</option>
+                    <option value="AC" <%= cliente.estado == "AC"? "selected": "" %>>Acre</option>
+                    <option value="AL" <%= cliente.estado == "AL"? "selected": "" %>>Alagoas</option>
+                    <option value="AP" <%= cliente.estado == "AP"? "selected": "" %>>Amapá</option>
+                    <option value="AM" <%= cliente.estado == "AM"? "selected": "" %>>Amazonas</option>
+                    <option value="BA" <%= cliente.estado == "BA"? "selected": "" %>>Bahia</option>
+                    <option value="CE" <%= cliente.estado == "CE"? "selected": "" %>>Ceará</option>
+                    <option value="DF" <%= cliente.estado == "DF"? "selected": "" %>>Distrito Federal</option>
+                    <option value="ES" <%= cliente.estado == "ES"? "selected": "" %>>Espírito Santo</option>
+                    <option value="GO" <%= cliente.estado == "GO"? "selected": "" %>>Goiás</option>
+                    <option value="MA" <%= cliente.estado == "MA"? "selected": "" %>>Maranhão</option>
+                    <option value="MT" <%= cliente.estado == "MT"? "selected": "" %>>Mato Grosso</option>
+                    <option value="MS" <%= cliente.estado == "MS"? "selected": "" %>>Mato Grosso do Sul</option>
+                    <option value="MG" <%= cliente.estado == "MG"? "selected": "" %>>Minas Gerais</option>
+                    <option value="PA" <%= cliente.estado == "PA"? "selected": "" %>>Pará</option>
+                    <option value="PB" <%= cliente.estado == "PB"? "selected": "" %>>Paraíba</option>
+                    <option value="PR" <%= cliente.estado == "PR"? "selected": "" %>>Paraná</option>
+                    <option value="PE" <%= cliente.estado == "PE"? "selected": "" %>>Pernambuco</option>
+                    <option value="PI" <%= cliente.estado == "PI"? "selected": "" %>>Piauí</option>
+                    <option value="RJ" <%= cliente.estado == "RJ"? "selected": "" %>>Rio de Janeiro</option>
+                    <option value="RN" <%= cliente.estado == "RN"? "selected": "" %>>Rio Grande do Norte</option>
+                    <option value="RS" <%= cliente.estado == "RS"? "selected": "" %>>Rio Grande do Sul</option>
+                    <option value="RO" <%= cliente.estado == "RO"? "selected": "" %>>Rondônia</option>
+                    <option value="RR" <%= cliente.estado == "RR"? "selected": "" %>>Roraima</option>
+                    <option value="SC" <%= cliente.estado == "SC"? "selected": "" %>>Santa Catarina</option>
+                    <option value="SP" <%= cliente.estado == "SP"? "selected": "" %>>São Paulo</option>
+                    <option value="SE" <%= cliente.estado == "SE"? "selected": "" %>>Sergipe</option>
+                    <option value="TO" <%= cliente.estado == "TO"? "selected": "" %>>Tocantins</option>
+                </select>
+            </div>
+            <div class="form-groups">
+                <label>Email:</label>
+                <input class="input-bigText" name="email" type="text" value="<%= cliente.email %>" required><br>
+            </div>
+            <div class="form-groups">
+                <label>Senha:</label>
+                <input class="input-mediumText" name="senha" type="password" value="<%= cliente.senha %>" required><br>
+            </div>
+            <button class="form-button" type="submit" onclick="return confirm('Deseja realmente alterar o cliente <%= cliente.nome %>?')">Alterar</button>
+        </form>
+    </div>
+</div>
 <%- include("partials/footer.ejs") %>

@@ -7,35 +7,54 @@
 
 /* Style GERAL */
 *{
-    background-color: #f5f5f5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--cinzaEscuro);
 }
+
+body{
+    background-color: #f5f5f5;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
 .container-bg{
     background-color: var(--amarelo);
 }
-.link{
-    text-decoration: none;
+
+.container-page{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
-.link:hover{
-    color: var(--cinzaEscuro);
-    transition: background 0.4s;
-}
+
 .content{
     margin-top: 80px;
     padding: 1rem 0;
 }
 
-/* Style da HEADER */
-.header-bg{
-    background-color: var(--cinzaEscuro);
+.link{
+    text-decoration: none;
 }
+
+.link:hover{
+    color: var(--cinzaEscuro);
+    transition: background 0.4s;
+}
+
+/* Style da HEADER */
 .header{
     align-content: center;
+    background-color: var(--cinzaEscuro);
     border-radius: 18px;
 }
+
 .header-title{
     text-align: center;
 }
+
 .header-link{
     color: var(--amareloClaro);
     text-decoration: none;
@@ -49,17 +68,19 @@
     padding: 1rem 0;
     width: 100%;
 }
+
 .navbar-items{
     display: flex;
     list-style: none;
     padding: 0;
 }
+
 .navbar-items li{
     margin: 0 2vw;
 }
+
 .navbar-items a{
     border-radius: 30px;
-    color: var(--cinzaEscuro);
     font-size: 1.2em;
     font-weight: bold;
     margin: 0 0.1em;
@@ -67,17 +88,72 @@
     text-decoration: none;
     transition: background 0.4s;
 }
+
 .navbar-items a:hover{
     background-color: var(--amareloClaro);
     font-size: 1.3em; 
 }
 
-/* Style da INDEX */
-.content-image{
-    background: no-repeat center/100% url("/images/lojaVenancio.jpg") transparent;
-    border-radius: 18px;
-    height: 50vh;
-    width: 100%;
+/* Style do Formulário */
+.form-container{
+    background-color: var(--amareloClaro);
+    border: 1px solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 20px;
+    max-width: 500px;
+}
+input, select{
+    border: 2px solid;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.form-groups{
+    margin: 5px 0px 5px 0;
+}
+
+.inline-fields{
+    margin: 5px 0px 5px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.input-bigText{
+    width: 20rem;
+}
+
+.input-mediumText{
+    width: 12rem;
+}
+.input-smallText{
+    width: 7rem;
+}
+
+.form-button{
+    background-color: var(--cinzaEscuro);
+    border: none;
+    border-radius: 15px;
+    color: var(--amareloClaro);
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.4s ease;
+    height: 3rem;
+    width: 6rem; 
+}
+
+.form-button:hover {
+    font-size: 18px;
+}
+
+.form-button:active {
+    font-size: 14px;
 }
 
 /* Style da TABELA */
@@ -86,31 +162,38 @@ table{
     border: 1px solid;
     border-radius: 10px;
 }
+
 th, td{
     border: 2px solid;
     border-radius: 10px;
-    color: var(--cinzaEscuro);
     padding: 8px;
     text-align: center;
 }
+
 th{
     background-color: var(--amarelo);
 }
+
+td{
+    background-color: #f5f5f5;
+}
+
 .edit{
     color: var(--amarelo);
 }
+
 .delete{
     color: #ec0a0a;
 }
 
 /* Style do FOOTER */
 .footer-text{
-    color: var(--cinzaEscuro);
     font-size: 1.2em;
     font-style: italic;
     font-weight: bold;
     text-align: center;
 }
+
 .footer{
     align-content: center;
     border-radius: 18px;

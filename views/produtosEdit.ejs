@@ -1,16 +1,25 @@
 <%- include("partials/header.ejs") %>
-
-<form class="content" action="/produtos/update " method="post">
-    <input type="hidden" name="id" value="<%= produto.id %>" required>
-    <label>Nome do Produto:</label>
-    <input type="text" name="nomeProduto" value="<%= produto.nomeProduto %>" required><br>
-    <label>Categoria:</label>
-    <input type="text" name="categoria" value="<%= produto.categoria %>" required><br>
-    <label>Preço:</label>
-    <input type="text" name="preco" value="<%= produto.preco %>" required><br>
-    <label>Estoque:</label>
-    <input type="text" name="estoque" value="<%= produto.estoque %>" required><br>
-    <button type="submit" onclick="return confirm('Deseja realmente alterar o produto <%= produto.nomeProduto %>?')">Alterar</button>
-</form>
-
+<div class="container-page">
+    <div class="content form-container">
+        <h1>Cadastro de Produtos</h1>
+        <form action="/produtos/update " method="post">
+            <input type="hidden" name="id" value="<%= produto.id %>" required>
+            <div class="form-groups">
+                <label>Nome do Produto:</label>
+                <input class="input-bigText" name="nomeProduto" type="text" value="<%= produto.nomeProduto %>" required>
+            </div>
+            <div class="form-groups">
+                <label>Categoria:</label>
+                <input class="input-mediumText" name="categoria" type="text" value="<%= produto.categoria %>" required>
+            </div>
+            <div class="inline-fields">
+                <label>Preço:</label>
+                <input class="input-smallText" name="preco" type="text" value="<%= produto.preco %>" required>
+                <label>Estoque:</label>
+                <input class="input-smallText" name="estoque" type="text" value="<%= produto.estoque %>" required>
+            </div>
+            <button class="form-button" type="submit" onclick="return confirm('Deseja realmente alterar o produto <%= produto.nomeProduto %>?')">Alterar</button>
+        </form>
+    </div>
+</div>
 <%- include("partials/footer.ejs") %>
