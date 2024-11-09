@@ -1,8 +1,9 @@
 import express from "express";
 const router = express.Router();
 import Pedido from "../models/Pedidos.js"
+import Auth from "../middleware/Auth.js";
 
-router.get("/pedidos", (req,res) => {
+router.get("/pedidos", Auth, (req,res) => {
     Pedido.findAll().then((pedidos) => {
         res.render("pedidos", {
             pedidos: pedidos
@@ -12,14 +13,13 @@ router.get("/pedidos", (req,res) => {
     });
 });
 
-router.post("/pedidos/new", (req, res) => {
-    const numeroPedido = req.body.numeroPedido;
-    const valor = req.body.valor;
+router.post("/pedidos/new", Auth, async (req, res) => {
+    const {numeroPedido, valor} = req.body;
     const horaPedido = new Date();
     Pedido.create({
-        numeroPedido: numeroPedido,
-        valor: valor,
-        horaPedido: horaPedido
+        numeroPedido,
+        valor,
+        horaPedido
     }).then(() => {
         res.redirect("/pedidos");
     }).catch((error) => {
@@ -27,7 +27,7 @@ router.post("/pedidos/new", (req, res) => {
     });
 });
 
-router.get("/pedidos/entregar/:id", (req, res) => {
+router.get("/pedidos/entregar/:id", Auth, (req, res) => {
     const id = req.params.id;
     const horaEntrega = new Date();
     Pedido.update({
@@ -39,7 +39,7 @@ router.get("/pedidos/entregar/:id", (req, res) => {
     });
 });
 
-router.get("/pedidos/edit/:id", (req, res) => {
+router.get("/pedidos/edit/:id", Auth, (req, res) => {
     const id = req.params.id;
     Pedido.findByPk(id).then((pedido) => {
         res.render("pedidosEdit", {
@@ -50,13 +50,11 @@ router.get("/pedidos/edit/:id", (req, res) => {
     });
 });
 
-router.post("/pedidos/update", (req, res) => {
-    const id = req.body.id;
-    const numeroPedido = req.body.numeroPedido;
-    const valor = req.body.valor;;
+router.post("/pedidos/update", Auth, async (req, res) => {
+    const {id, numeroPedido, valor} = req.body;
     Pedido.update({
-        numeroPedido: numeroPedido,
-        valor: valor,
+        numeroPedido,
+        valor,
     }, {where: { id: id }}).then(() => {
         res.redirect("/pedidos");
     }).catch((error) => {
@@ -64,7 +62,7 @@ router.post("/pedidos/update", (req, res) => {
     })
 });
 
-router.get("/pedidos/delete/:id", (req, res) => {
+router.get("/pedidos/delete/:id", Auth, (req, res) => {
     const id = req.params.id;
     Pedido.destroy({
         where: { id: id }
